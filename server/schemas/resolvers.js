@@ -29,6 +29,11 @@ const resolvers = {
 			const token = signToken(user);
 
 			return { token, user };
+		},
+		addTodo: async(root,args)=>{
+			const newTodo = new Todo({title:args.title,detail:args.detail,date:args.date})
+			await newTodo.save()
+			return newTodo
 		}
 	},
 };
