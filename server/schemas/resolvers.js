@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Todo } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -15,14 +15,19 @@ const resolvers = {
 			}
 
 			throw new AuthenticationError('Not logged in');
-		}
+		},
+		getTodos: async () => {
+			const todos = await Todo.find();
+			return todos;
+		},
 	},
+
 
 	Mutation: {
 		addUser: async (_, args) => {
 			const user = await User.create(args);
 			const token = signToken(user);
-			
+
 			return { token, user };
 		}
 	},
