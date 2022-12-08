@@ -17,6 +17,7 @@ const typeDefs = gql`
 		users: [User]
 		me: User
 		getTodos:[Todo]
+		getTodo(id:ID):Todo
 	}
 	type Todo {
 		id:ID
