@@ -1,6 +1,7 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
+	scalar Date
 	type User {
 		_id: ID
 		username: String
@@ -15,6 +16,13 @@ const typeDefs = gql`
 	type Query {
 		users: [User]
 		me: User
+		getTodos:[Todo]
+	}
+	type Todo {
+		id:ID
+		title:String
+		detail:String
+	    date:Date
 	}
 
 	type Mutation {
