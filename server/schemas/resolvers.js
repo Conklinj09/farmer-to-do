@@ -20,7 +20,7 @@ const resolvers = {
 			const todos = await Todo.find();
 			return todos;
 		},
-		getTodo: async (root,args) => {
+		getTodo: async (root, args) => {
 			const todo = await Todo.findById(args.id);
 			return todo;
 		},
@@ -34,12 +34,33 @@ const resolvers = {
 
 			return { token, user };
 		},
-		addTodo: async(root,args)=>{
-			const newTodo = new Todo({title:args.title,detail:args.detail,date:args.date})
+		addTodo: async (root, args) => {
+			const newTodo = new Todo({ title: args.title, detail: args.detail, date: args.date })
 			await newTodo.save()
 			return newTodo
+		},
+		deleteTodo: async (root, args) => {
+			
+			
+		},
+		updateTodo:async (root, args) => {
+			const{id,title,detail,date} = args
+			const updatedTodo = {};
+			
+			if(title!=undefined){
+				updatedTodo.title = title;
+			}
+			if(detail!=undefined){
+				updatedTodo.detail = detail;
+			}
+			if(date!=undefined){
+				updatedTodo.date = date;
+			}
+			const todo = await Todo.findByIdAndUpdate(id,updatedTodo,{new:true})
+			return todo;
 		}
-	},
-};
+	}
+}
+
 
 module.exports = resolvers;
