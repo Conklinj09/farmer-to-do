@@ -10,7 +10,9 @@ function About() {
 
 	return (
 		<h1>
-			This is the about page.
+			This is the about page. 
+			We have created a MERN Stack application that runs a To-Do List.
+
 
 			{loading ? (
 				<div>Loading ...</div>
