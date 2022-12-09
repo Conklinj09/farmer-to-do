@@ -34,13 +34,34 @@ const resolvers = {
 
 			return { token, user };
 		},
+
+		login: async (parent, { email, password }) => {
+			const user = await User.findOne({ email });
+	  
+			if (!user) {
+			  throw new AuthenticationError('No User with this email found!');
+			}
+	  
+			const correctPw = await user.isCorrectPassword(password);
+	  
+			if (!correctPw) {
+			  throw new AuthenticationError('Incorrect password!');
+			}
+	  
+			const token = signToken(user);
+			return { token, user };
+		  },
+
+
 		addTodo: async (root, args) => {
 			const newTodo = new Todo({ title: args.title, detail: args.detail, date: args.date })
 			await newTodo.save()
 			return newTodo
 		},
 		deleteTodo: async (root, args) => {
-			
+			await Todo.findByIdAndDelete(args.id);
+            return 'Your todo has been deleted sucessfully'
+        },
 			
 		},
 		updateTodo:async (root, args) => {
