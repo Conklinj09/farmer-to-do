@@ -11,7 +11,7 @@ function Navbar() {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <Link to="/" class="nav-link" aria-current="page" href="#">Log In</Link>
+          <Link to="/login" class="nav-link" aria-current="page" href="#">Log In</Link>
         </li>
         <li class="nav-item">
           <Link to="/signup" class="nav-link" href="#">Sign Up</Link>
