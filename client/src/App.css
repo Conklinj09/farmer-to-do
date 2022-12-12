@@ -1,12 +1,542 @@
 /* Put generic CSS such as p { font-size: 16px } in here */
 /* import background-front from ('/Pictures/Totoropic.png') */
 
-.navbar{
-    background-color: pink;
-}
 
 *{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Alice', Helvetica, Futura, sans-serif;
     background: url('client/Pictures/Totoropic.png');
 }
 
+
+/* // Mouse Animation Hover */
+{
+
+$c-border: #FFB6C1; 
+$c-background: #FFFFF0;
+$c-text: #441151;
+
+body {
+  font-family: 'Alice', Helvetica, sans-serif;
+}
+
+div {
+  margin: 4em auto;
+  padding: 4em;
+  box-sizing: border-box;
+  width: 30em;
+  height: 15em;
+  text-align: center;
+  background-color: $c-background;
+ 
+}
+
+.sparkle {
+  max-width: 10em;
+  color: $c-text;
+  margin: auto auto;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.u-hover--sparkle {
+ 
+  box-sizing: border-box;
+  position: relative;
+  padding: 0.75em;
+  &::before,
+  &::after {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transform-origin: center;
+  }
+
+  &::before {
+    border-top: 0.2em solid $c-border;
+    border-bottom: 0.2em solid $c-border;
+    transform: scale3d(0,1,1);
+  }
+
+  &::after {
+    border-left: 0.2em solid $c-border;
+    border-right: 0.2em solid $c-border;
+    transform: scale3d(1,0,1);
+  }
+
+  &:hover::before,
+  &:hover::after {
+    transform: scale3d(1,1,1);
+    transition: transform 900ms;
+  }
+}
+}
+
+/* //Rainbow Mouse Trail Snippet for Cursor*/
+@import url('https://fonts.googleapis.com/css?family=Paytone+One');
+@import 'compass/css3';
+
+body,html {
+  background:#060a19;
+  width:100%;
+  height: 100%;
+  overflow:hidden;
+  font-family: Paytone One;
+}
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{"$animationName"} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+
+  @-ms-keyframes #{$animationName} {
+    @content;
+  }
+
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+p {
+  color: #fff;
+  background: #000;
+  mix-blend-mode: lighten;
+  font-size:30px;
+  text-align: center;
+  position: absolute;
+  left:0;
+  right: 0;
+  top:0;
+  bottom: 0;
+  margin:auto;
+  height: 100px;
+  @include animation(filterHue2 2s linear infinite);
+  
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #e23b4a; //fallback
+    @include background(linear-gradient(to right,#23966c, #faaa54, #e23b4a, #db0768, #360670));
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+}
+
+.loader-container {
+  width:100px;
+  height:100px;
+  position: absolute;
+  @include animation(scaleUp .5s linear);
+  @include transform(scale(0));
+  opacity: 0;
+  .loader {
+    background: #ff0c0c;
+    @include background(linear-gradient(50deg,#ff0c0c,#21d400));
+    border-radius:10px;
+    @include filter(hue-rotate(0deg));
+    animation: filterHue 2.5s linear infinite;
+    height:100%;
+    width: 100%;
+    transform:rotate(0deg);
+    &::after {
+      content:'';
+      position:absolute;
+      height: 80px;
+      width:80px;
+      left:10px;
+      top:10px;
+      border-radius: 100%;
+    }
+  }
+}
+
+@include keyframes(filterHue2) {
+  50%{@include filter(hue-rotate(1000deg));}
+  100% {@include filter(hue-rotate(2000deg)); }
+}
+
+@include keyframes(filterHue) {
+  50%{@include filter(hue-rotate(1000deg));}
+  100% {@include filter(hue-rotate(2000deg));
+  @include transform(rotate(360deg));}
+}
+@include keyframes(scaleUp) {
+  50%{@include transform(scale(0.5));opacity: 1}
+  100% {@include transform(scale(0.25));}
+}
+
+
+@supports (-ms-ime-align: auto) {
+  p {
+    color: #21d400;
+    background: transparent;
+    mix-blend-mode: lighten;
+    font-size: 30px;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 100px;
+    @include animation(filterHue2 2s linear infinite);
+  }
+  p::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: transparent;
+  }
+}
+
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  p {
+    color: #ff447c;
+    background: transparent;
+    mix-blend-mode: lighten;
+    font-size: 30px;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 100px;
+    @include animation(filterHue2 2s linear infinite);
+  }
+  p::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: transparent;
+  }
+  
+  .loader {
+    @include background(linear-gradient(50deg,rgba(240, 0, 80, 1),#2380ff) !important); 
+  }
+}
+
+
+
+/* // Floating Avatar Image for homescreen */
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica', sans-serif;
+  background: rgb(26, 188, 156);
+  background: -moz-linear-gradient(-45deg, rgba(26, 188, 156, 1) 0%, rgba(142, 68, 173, 1) 100%);
+  background: -webkit-linear-gradient(-45deg, rgba(26, 188, 156, 1) 0%, rgba(142, 68, 173, 1) 100%);
+  background: linear-gradient(135deg, rgba(26, 188, 156, 1) 0%, rgba(142, 68, 173, 1) 100%);
+}
+
+h1 {
+  font-size: 24px;
+  margin: 10px 0 0 0;
+  font-weight: lighter;
+  text-transform: uppercase;
+  color: #eeeeee;
+}
+
+p {
+  font-size: 12px;
+  font-weight: light;
+  color: #333333;
+}
+
+span a {
+  font-size: 18px;
+  color: #cccccc;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: all 0.4s ease-in-out;
+  &:hover {
+    color: #ffffff;
+  }
+}
+
+@keyframes float {
+  0% {
+    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    transform: translatey(0px);
+  }
+  50% {
+    box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+    transform: translatey(-20px);
+  }
+  100% {
+    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    transform: translatey(0px);
+  }
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  box-sizing: border-box;
+  border: 5px white solid;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+  transform: translatey(0px);
+  animation: float 6s ease-in-out infinite;
+  img { width: 100%; height: auto; }
+}
+
+.content {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+
+
+
+/* app shell CSS */
+:root {
+    --primary: #28b9ad;
+    --gray: #ececec;
+    --whitesmoke: #f5f5f5;
+    --dark: #222;
+    --monokai: #1c9054;
+    --navbar-height: 50px;
+  }
+  
+  body {
+    margin: 0;
+    background-color: var(--monokai);
+    font-family: 'Cute',
+      sans-serif;
+    font-family: 'Spring',
+      sans-serif;
+  }
+  
+  h1 {
+    font-size: 22px;
+  }
+  
+  #navbar {
+    height: var(--navbar-height);
+    background-color: pink
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgb(44, 207, 248);
+    font-size: 22px;
+    font-weight: 550;
+    letter-spacing: 0.9px;
+  }
+  
+  .navbar-brand img {
+    padding-top: 10px;
+  }
+  
+  .loading-spinner {
+    animation-duration: 0.75s;
+    animation-iteration-count: infinite;
+    animation-name: rotate-forever;
+    animation-timing-function: linear;
+    height: 30px;
+    width: 30px;
+    border: 3px solid var(--primary);
+    border-right-color: transparent;
+    border-radius: 50%;
+  }
+  
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - var(--navbar-height));
+  }
+  
+  @keyframes rotate-forever {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .app-update {
+    display: none;
+    position: absolute;
+    right: 10px;
+  }
+  
+  .app-update.show {
+    display: block;
+  }
+  
+  .nav-btn {
+    margin: 25px;
+  }
+  
+  .btn {
+    text-align: center;
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    margin: 0;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 0.3rem;
+    border: 1px solid transparent;
+    outline: none;
+    color: #1a1a1a;
+    background-color: #aeaeae;
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  }
+  
+  .btn:hover {
+    background-color: #cecece;
+    cursor: pointer;
+  }
+  
+  .btn.btn-squared {
+    border-radius: 0;
+  }
+  
+  .btn.btn-sm {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.9rem;
+  }
+  
+  .btn.btn-lg {
+    font-size: 1.25rem;
+    padding: 0.8rem 1.4rem;
+  }
+  
+  .btn.btn-block {
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+  
+  .btn.btn-primary {
+    background-color: #2d3e50;
+    color: #d9e9e8;
+  }
+  
+  .btn.btn-primary:hover {
+    background-color: #57779a;
+  }
+  
+  .btn.btn-danger {
+    background-color: #e64c66;
+    color: #ffffff;
+  }
+  
+  .btn.btn-danger:hover {
+    background-color: #ee8294;
+  }
+  
+  .btn.btn-info {
+    background-color: #1bbc9b;
+    color: #ffffff;
+  }
+  
+  .btn.btn-info:hover {
+    background-color: #31e1bd;
+  }
+  
+  .btn.btn-light {
+    background-color: #d9e9e8;
+    color: #1a1a1a;
+  }
+  
+  .btn.btn-light:hover {
+    background-color: #84b8b4;
+  }
+  
+  .btn.btn-dark {
+    background-color: #1a1a1a;
+    color: #d9e9e8;
+  }
+  
+  .btn.btn-dark:hover {
+    background-color: #5f5f5f;
+  }
+  
+  .btn.btn-white {
+    background-color: #ffffff;
+    color: #1a1a1a;
+  }
+  
+  .btn.btn-white:hover {
+    background-color: #cccccc;
+  }
+  
+  .btn.btn-black {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  
+  .btn.btn-black:hover {
+    background-color: #666666;
+  }
+  
+  .btn.btn-link {
+    background-color: #1b89bc;
+    color: #ffffff;
+  }
+  
+  .btn.btn-link:hover {
+    background-color: #31a9e1;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .nav-btn {
+      display: none;
+    }
+  
+    .navbar-brand {
+      display: none;
+    }
+  
+    #navbar {
+      justify-content: center;
+    }
+  
+    h1 {
+      font-size: 20px;
+    }
+  }
+  
