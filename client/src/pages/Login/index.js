@@ -43,7 +43,10 @@ const Login = (props) => {
   };
 
   return (
+
+
     <main className="flex-row justify-center mb-4">
+
 <div class="wrapper">
         <div class="logo">
             <img src="https://www.freepnglogos.com/uploads/farmer-png/farmer-man-vector-cartoon-characters-ultimate-packs-31.png" alt="Farmer"/>
@@ -54,6 +57,20 @@ const Login = (props) => {
         <form onSubmit={handleFormSubmit}>
             <div class="form-field d-flex align-items-center">
                 <span class="far fa-user"></span>
+
+   
+      <div className="col-12 col-lg-10">
+        <div className="card">
+          <h4 className="card-header bg-dark text-light p-2">Login</h4>
+          <div className="card-body">
+            {data ? (
+              <p>
+                Success! You may now head{' '}
+                <Link to="/">back to the homepage.</Link>
+              </p>
+            ) : (
+              <form onSubmit={handleFormSubmit}>
+
                 <input
                   className="form-input"
                   placeholder="Your email"
@@ -93,3 +110,22 @@ const Login = (props) => {
 
 
 export default Login;
+
+
+
+// <form onSubmit={handleFormSubmit}>
+//   <div class="mb-3">
+//   <label for="exampleInputEmail1" class="form-label">Email address</label>
+//   <input type="email" placeholder="Your email" name="email" type="email" value={formState.email} onChange={handleChange} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+//   <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+// </div>
+// <div class="mb-3">
+//   <label for="exampleInputPassword1" class="form-label">Password</label>
+//   <input type="password" placeholder="******" name="password" type="password" class="form-control" value={formState.password} onChange={handleChange} id="exampleInputPassword1">
+// </div>
+// <div class="mb-3 form-check">
+//   <input type="checkbox" class="form-check-input" id="exampleCheck1">
+//   <label class="form-check-label" for="exampleCheck1">Check me out</label>
+// </div>
+// <button type="submit" class="btn btn-primary" style={{ cursor: 'pointer' }}>Submit</button>
+// </form>
