@@ -6,12 +6,13 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-
+import { useQuery } from '@apollo/client';
 import './App.css';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Login from './pages/Login/index';
 import { LOGIN_USER } from './utils/mutations';
+import { GET_TODOS } from './utils/mutations';
 import SignUp from './pages/SignUp/index';
 import Footer from './components/Footer/Footer';
 
@@ -38,6 +39,8 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const{loading,error,data}=useQuery(GET_TODOS);
+  console.log(data);
   return (
     <ApolloProvider client={client}>
       <Router>
