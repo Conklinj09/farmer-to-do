@@ -1,10 +1,16 @@
+import { useQuery } from '@apollo/client';
+import { GET_TODOS } from '../../utils/queries';
 function Home() {
+	const{loading,error,data}=useQuery(GET_TODOS);
+	if(loading) return<p>Loading.........</p>
+	if(error) return <h2>{error.message}</h2>
+	console.log(data);
 	return (
 		<main>
 			<form>
 				<div className="mb-3 form-group">
 					<label>Title</label>
-					<input type="email" className="form-control" placeholder="Enter the Title" />
+					<input type="text" className="form-control" placeholder="Enter the Title" />
 
 				</div>
 				<div className="mb-3">
@@ -18,31 +24,20 @@ function Home() {
 				<button type="submit" className="btn btn-primary">Submit</button>
 			</form>
 
-			<div class="list-group">
-				<a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-					<div class="d-flex w-100 justify-content-between">
-						<h5 class="mb-1">List group item heading</h5>
+			<div className="list-group mt-4">
+				{data?.getTodos.map(todo => ( 
+					<a href="#" className="list-group-item list-group-item-action " aria-current="true">
+					<div className="d-flex w-100 justify-content-between">
+						<h5 className="mb-1">{todo.title}</h5>
 						<small>3 days ago</small>
 					</div>
-					<p class="mb-1">Some placeholder content in a paragraph.</p>
+					<p className="mb-1">{todo.detail}.</p>
 					<small>And some small print.</small>
 				</a>
-				<a href="#" class="list-group-item list-group-item-action">
-					<div class="d-flex w-100 justify-content-between">
-						<h5 class="mb-1">List group item heading</h5>
-						<small class="text-muted">3 days ago</small>
-					</div>
-					<p class="mb-1">Some placeholder content in a paragraph.</p>
-					<small class="text-muted">And some muted small print.</small>
-				</a>
-				<a href="#" class="list-group-item list-group-item-action">
-					<div class="d-flex w-100 justify-content-between">
-						<h5 class="mb-1">List group item heading</h5>
-						<small class="text-muted">3 days ago</small>
-					</div>
-					<p class="mb-1">Some placeholder content in a paragraph.</p>
-					<small class="text-muted">And some muted small print.</small>
-				</a>
+				
+
+				))}
+				
 			</div>
 		</main>
 
