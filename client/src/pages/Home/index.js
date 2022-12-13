@@ -7,8 +7,8 @@ function Home() {
 					
 			</div>
 			<div className="mb-3">
-				<label>Detials</label>
-				<input type="text" className="form-control" id="exampleInputPassword1"/>
+				<label>Details</label>
+				<input type="text" className="form-control" placeholder="Describe The Detail"/>
 			</div>
 			<button type="submit" className="btn btn-primary">Submit</button>
 		</form>
