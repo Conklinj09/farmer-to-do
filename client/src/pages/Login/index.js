@@ -44,16 +44,16 @@ const Login = (props) => {
 
   return (
     <main className="flex-row justify-center mb-4">
-<div class="wrapper">
-        <div class="logo">
+<div className="wrapper">
+        <div className="logo">
             <img src="https://www.freepnglogos.com/uploads/farmer-png/farmer-man-vector-cartoon-characters-ultimate-packs-31.png" alt="Farmer"/>
         </div>
-        <div class="text-center mt-4 name">
+        <div className="text-center mt-4 name">
             Farmer-To-Do
         </div>
         <form onSubmit={handleFormSubmit}>
-            <div class="form-field d-flex align-items-center">
-                <span class="far fa-user"></span>
+            <div className="form-field d-flex align-items-center">
+                <span className="far fa-user"></span>
                 <input
                   className="form-input"
                   placeholder="Your email"
@@ -63,8 +63,8 @@ const Login = (props) => {
                   onChange={handleChange}
                 />
             </div>
-            <div class="form-field d-flex align-items-center">
-                <span class="fas fa-key"></span>
+            <div className="form-field d-flex align-items-center">
+                <span className="fas fa-key"></span>
                 <input
                   className="form-input"
                   placeholder="Password"
@@ -75,9 +75,9 @@ const Login = (props) => {
                   onChange={handleChange}
                 />
             </div>
-            <button class="btn mt-3">Login</button>
+            <button className="btn mt-3">Login</button>
         </form>
-        <div class="text-center fs-6">
+        <div className="text-center fs-6">
             <a href="#">Forget password?</a> or <a href="./SignUp">Sign up</a>
         </div>
                     {error && (
