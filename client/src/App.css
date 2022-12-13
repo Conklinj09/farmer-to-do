@@ -2,6 +2,7 @@
 /* import background-front from ('/Pictures/Totoropic.png') */
 
 
+
 *{
     font-family: 'Alice', Helvetica, Futura, sans-serif;
     background: url('client/Pictures/Totoropic.png');
@@ -540,3 +541,22 @@ span a {
     }
   }
   
+
+.navbar {
+    background-color: #78BC61;
+}
+
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+
+/* body{
+    background-image: url("../Pictures/Totoropic.png");
+    background-size:auto;
+    width: fit-content;
+    height: 100vh;
+    
+    
+    background-repeat: no-repeat;
+} */
