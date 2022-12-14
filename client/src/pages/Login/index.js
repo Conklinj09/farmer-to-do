@@ -5,6 +5,7 @@ import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
+import './Login.css';
 
 const Login = () => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
@@ -54,6 +55,15 @@ const Login = () => {
   };
 
   return (
+    <main className="flex-row justify-center mb-4">
+    <div className="wrapper">
+            <div className="logo">
+                <img src="https://www.freepnglogos.com/uploads/farmer-png/farmer-man-vector-cartoon-characters-ultimate-packs-31.png" alt="Farmer"/>
+            </div>
+            <div className="text-center mt-4 name">
+                Farmer-To-Do
+            </div>
+    
     <>
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         <Alert
@@ -65,7 +75,9 @@ const Login = () => {
           Something went wrong with your login credentials!
         </Alert>
         <Form.Group>
-          <Form.Label htmlFor="email">Email</Form.Label>
+        <div className="form-field d-flex align-items-center">
+                <span className="far fa-user"></span>
+          <Form.Label htmlFor="email"></Form.Label>
           <Form.Control
             type="text"
             placeholder="Your email"
@@ -74,13 +86,16 @@ const Login = () => {
             value={userFormData.email}
             required
           />
+           </div>
           <Form.Control.Feedback type="invalid">
             Email is required!
           </Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor="password">Password</Form.Label>
+        <div className="form-field d-flex align-items-center">
+                <span className="fas fa-key"></span>
+          <Form.Label htmlFor="password"></Form.Label>
           <Form.Control
             type="password"
             placeholder="Your password"
@@ -89,11 +104,12 @@ const Login = () => {
             value={userFormData.password}
             required
           />
+             </div>
           <Form.Control.Feedback type="invalid">
             Password is required!
           </Form.Control.Feedback>
         </Form.Group>
-        <Button
+        <Button className="btn mt-3"
           disabled={!(userFormData.email && userFormData.password)}
           type="submit"
           variant="success"
@@ -102,6 +118,11 @@ const Login = () => {
         </Button>
       </Form>
     </>
+    <div className="text-center fs-6">
+           <a href="./SignUp">Sign up</a>
+        </div>
+    </div>
+    </main>
   );
 };
 
