@@ -16,6 +16,7 @@
     "concurrently": "^7.6.0"
   },
   "dependencies": {
-    "bootstrap": "^5.2.3"
+    "bootstrap": "^5.2.3",
+    "react-bootstrap": "^2.7.0"
   }
 }
