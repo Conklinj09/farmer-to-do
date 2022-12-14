@@ -11,7 +11,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 // import About from './pages/About';
-import Signup from './pages/Signup';
+import Signup from './pages/SignUp/index';
 import Login from './pages/Login/index';
 
 const httpLink = createHttpLink({
