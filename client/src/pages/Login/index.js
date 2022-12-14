@@ -56,7 +56,7 @@ const Login = () => {
 
   return (
     <main className="flex-row justify-center mb-4">
-    <div className="wrapper">
+        <div className="wrapper">
             <div className="logo">
                 <img src="https://www.freepnglogos.com/uploads/farmer-png/farmer-man-vector-cartoon-characters-ultimate-packs-31.png" alt="Farmer"/>
             </div>
