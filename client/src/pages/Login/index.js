@@ -61,7 +61,7 @@ const Login = () => {
                 <img src="https://www.freepnglogos.com/uploads/farmer-png/farmer-man-vector-cartoon-characters-ultimate-packs-31.png" alt="Farmer"/>
             </div>
             <div className="text-center mt-4 name">
-                Farmer-To-Do
+                Login
             </div>
     
     <>
@@ -76,7 +76,7 @@ const Login = () => {
         </Alert>
         <Form.Group>
         <div className="form-field d-flex align-items-center">
-                <span className="far fa-user"></span>
+                <span className="far fa-envelope mb-2"></span>
           <Form.Label htmlFor="email"></Form.Label>
           <Form.Control
             type="text"
