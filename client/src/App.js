@@ -15,6 +15,7 @@ import { LOGIN_USER } from './utils/mutations';
 import { GET_TODOS } from './utils/queries';
 import SignUp from './pages/SignUp/index';
 import Footer from './components/Footer/Footer';
+import 'animate.css';
 
 
 
@@ -51,6 +52,7 @@ function App() {
       <Router>
         <>
           <Navbar />
+          <h1 className="animate__animated animate__bounce">Test</h1>
           <Routes>
             <Route
               path="/"

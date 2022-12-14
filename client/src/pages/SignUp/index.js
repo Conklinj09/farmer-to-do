@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER, ADD_USER } from '../../utils/mutations';
-
+import 'animate.css';
 import Auth from '../../utils/auth';
 
 const Signup = () => {
@@ -99,5 +99,54 @@ const Signup = () => {
     </main>
   );
 };
+
+
+//introduces and runs animation script
+
+animateCSS('.my-element', 'tada');
+
+const element = document.querySelector('.my-element');
+element.classList.add('animate__animated', 'animate__tada');
+
+element.addEventListener('animationend', () => {
+
+  // end animation
+});
+
+
+
+//adds animation class and removes them automatically
+const animateCSS = (element, animation, tada = 'animate__tada') =>
+  // We create a Promise and return it
+  new Promise((resolve, reject) => {
+    const animationName = `${tada}${animation}`;
+    const node = document.querySelector(element);
+
+    node.classList.add(`${tada}animated`, animate__tada);
+
+    // When the animation ends, we clean the classes and resolve the Promise
+    function handleAnimationEnd(event) {
+      event.stopPropagation();
+      node.classList.remove(`${tada}animated`, animate__tada);
+      resolve('Animation ended');
+    }
+
+    node.addEventListener('animationend', handleAnimationEnd, {once: true});
+  });
+
+
+
+//a sign displaying a banner in react
+  const FontLink = () => {
+    return(
+        <div className="card">
+            <span className="font-link">
+                Totoro Notes 
+            </span>
+        </div>
+    )
+  };
+  
+
 
 export default Signup;
