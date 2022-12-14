@@ -19,15 +19,3 @@ export const QUERY_ME = gql`
 		}
 	}
 `;
-export const GET_TODOS = gql`
-{
- getTodos {
-   id
-   title
-   detail
-   date
-   
- }
-}
-
-`
