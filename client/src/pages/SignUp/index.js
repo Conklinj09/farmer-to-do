@@ -3,7 +3,7 @@ import { Form, Button, Alert } from 'react-bootstrap';
 
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
-
+import 'animate.css';
 import Auth from '../../utils/auth';
 import './SignUp.css';
 
@@ -68,7 +68,7 @@ const Signup = () => {
                 <img src="https://www.freepnglogos.com/uploads/farmer-png/farmer-man-vector-cartoon-characters-ultimate-packs-31.png" alt="Farmer"/>
             </div>
             <div className="text-center mt-4 name">
-                Sign Up
+            <h1 class="animate__animated animate__tada">Sign Up</h1>
             </div>
     <>
       {/* This is needed for the validation functionality above */}
