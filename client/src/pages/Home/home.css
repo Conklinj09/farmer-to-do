@@ -1,0 +1,39 @@
+: :root
+
+
+
+
+
+
+form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20 px;
+}
+
+form input {
+    flex-grow: 1;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+}
+
+form button {
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #2196f3;
+    color:floralwhite;
+    border: none;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    display:flex;
+    
+}
