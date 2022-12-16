@@ -6,6 +6,7 @@ const typeDefs = gql`
 		_id: ID
 		username: String
 		email: String
+		todos:[Todo]
 	}
 
 	type Auth {
@@ -16,11 +17,10 @@ const typeDefs = gql`
 	type Query {
 		users: [User]
 		me: User
-		getTodos:[Todo]
-		getTodo(id:ID):Todo
+		
 	}
 	type Todo {
-		id:ID
+		_id:ID
 		title:String
 		detail:String
 	    date:Date
@@ -29,11 +29,14 @@ const typeDefs = gql`
 	type Mutation {
 		addUser(username: String!, email: String!, password: String!): Auth
 		login(email: String!, password: String!): Auth
-
-		addTodo(title:String,detail:String,date:Date):Todo
-		deleteTodo(id:ID):String
-		updateTodo(id:ID,title:String,detail:String,date:Date):Todo
+		deleteTodo(_id:ID):User
+		addTodo(title:String,detail:String,date:Date):User
+		
 	}
 `;
 
 module.exports = typeDefs;
+
+
+// deleteTodo(_id:ID):String
+// 		updateTodo(_id:ID,title:String,detail:String,date:Date):Todo
