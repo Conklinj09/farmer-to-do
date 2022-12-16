@@ -19,7 +19,7 @@ function Navbar() {
 									<Link to="/" className="nav-link text-white" aria-current="page" href="#">Home</Link>
 								</li> */}
 								<li className="nav-item text-white">
-									<Link to="/login" onClick={Auth.logout} className="nav-link text-white">Logout</Link>
+									<Link to="/" onClick={Auth.logout} className="nav-link text-white">Logout</Link>
 								</li>
 							</ul>
 						) : (

@@ -8,28 +8,28 @@ import { TodoContext } from "../../TodoContext";
 
 
 const AddTodos = () => {
-    const {selectedID,setSelectedId} = useContext(TodoContext);
-    console.log(selectedID);
+    // const {selectedID,setSelectedId} = useContext(TodoContext);
+    // console.log(selectedID);
     const inputAreaRef = useRef();
     const [todo, setTodo] = useState({
         title:'',
         detail:'',
         date:''
     })
-    useEffect(() =>{
-        const checkIfClickedOutside = e =>{
-            if(!inputAreaRef.current.contains(e.target)){
-                console.log("Click Inside the text area only")
-            } 
-            else{
-                console.log("inside area")
-            }
-        }
-        document.addEventListener('mousedown',checkIfClickedOutside)
-        return() =>{
-            document.removeEventListener("mousedown",checkIfClickedOutside);
-        }
-    })
+    // useEffect(() =>{
+    //     const checkIfClickedOutside = e =>{
+    //         if(!inputAreaRef.current.contains(e.target)){
+    //             console.log("Click Inside the text area only")
+    //         } 
+    //         else{
+    //             console.log("inside area")
+    //         }
+    //     }
+    //     document.addEventListener('mousedown',checkIfClickedOutside)
+    //     return() =>{
+    //         document.removeEventListener("mousedown",checkIfClickedOutside);
+    //     }
+    // })
 
     const [addTodo] = useMutation(ADD_TODO)
     const onSubmit = event => {
@@ -38,22 +38,19 @@ const AddTodos = () => {
             variables:{
                 title:todo.title,
                 detail:todo.detail,
-                date:todo.date,
+                date:moment(todo.date).format("YYYY-MM-DD"),
             },
-            refetchQueries:[
-                {
-                    query: GET_TODOS
-                }
-            ]
+          
         })
+        window.location.reload()
     }
 
     return (
         <form onSubmit={onSubmit} ref={inputAreaRef}>
             <div className="mb-3 form-group">
-                <label>Title {selectedID}</label>
+                {/* <label>Title {selectedID}</label> */}
                 {/* <pre>{JSON.stringify(todo,null,'\t')}</pre> */}
-                <input type="text" className="form-control" placeholder="Enter the Title" value={todo.titile} onChange={e =>setTodo({...todo,title:e.target.value})}/>
+                <input type="text" className="form-control" placeholder="Enter the Title" value={todo.title} onChange={e =>setTodo({...todo,title:e.target.value})}/>
 
             </div>
             <div className="mb-3">

@@ -12,22 +12,18 @@ export const QUERY_USERS = gql`
 
 export const QUERY_ME = gql`
 	query Query {
-		me {
-			username
-			email
-			_id
-		}
-	}
+  me {
+    _id
+    email
+    todos {
+      date
+      detail
+      _id
+      title
+    }
+    username
+  }
+}
 `;
 
-export const GET_TODOS = gql`
-{
- getTodos {
-   id
-   title
-   detail
-   date
-   
- }
-}
-`
+

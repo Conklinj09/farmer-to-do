@@ -24,19 +24,26 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_TODO = gql`
-  mutation addTodo($title:String,$detail:String,$date:Date){
-    addTodo(title:$title,detail:$detail,date:$date){
-     id
-     title
-     detail
-     date
-      
+  mutation addTodo($title: String, $detail: String, $date: Date) {
+  addTodo(title: $title, detail: $detail, date: $date) {
+    _id
+    email
+    todos {
+      date
+      detail
+      _id
+      title
     }
+    username
   }
-`
+}
+`;
 
 export const DELETE_TODO = gql`
-  mutation deleteTodo($id:ID){
-      deleteTodo(id:$id)
+   mutation deleteTodo($id: ID) {
+  deleteTodo(_id: $id) {
+    _id
+   
   }
-`
+}
+ `
