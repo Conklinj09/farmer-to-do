@@ -1,11 +1,15 @@
 import { useMutation } from "@apollo/client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { ADD_TODO } from "../../utils/mutations";
 import { GET_TODOS } from "../../utils/queries";
+
 import moment from 'moment'
+import { TodoContext } from "../../TodoContext";
 
 
 const AddTodos = () => {
+    const {selectedID,setSelectedId} = useContext(TodoContext);
+    console.log(selectedID);
     const inputAreaRef = useRef();
     const [todo, setTodo] = useState({
         title:'',
@@ -47,7 +51,7 @@ const AddTodos = () => {
     return (
         <form onSubmit={onSubmit} ref={inputAreaRef}>
             <div className="mb-3 form-group">
-                <label>Title</label>
+                <label>Title {selectedID}</label>
                 {/* <pre>{JSON.stringify(todo,null,'\t')}</pre> */}
                 <input type="text" className="form-control" placeholder="Enter the Title" value={todo.titile} onChange={e =>setTodo({...todo,title:e.target.value})}/>
 
