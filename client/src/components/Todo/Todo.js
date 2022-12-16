@@ -4,6 +4,7 @@ import { GET_TODOS, QUERY_ME } from '../../utils/queries';
 import AddTodos from '../../components/Todo/AddTodos';
 import { useMutation } from '@apollo/client';
 import { DELETE_TODO } from '../../utils/mutations';
+import './Todo.css';
 
 const Todo = ({_id,title,date,detail}) => {
     const [deleteTodo] = useMutation(DELETE_TODO);
@@ -18,7 +19,7 @@ const Todo = ({_id,title,date,detail}) => {
         window.location.reload();
     }
     return(
-        <a href="#" className="list-group-item list-group-item-action " aria-current="true">
+        <a href="#" className="list-group-item list-group-item-action" aria-current="true">
 					<div className="d-flex w-100 justify-content-between">
 						<h5 className="mb-1">{title}</h5>
 						<small>{moment(date).format("MMMM DD YYYY")}</small>

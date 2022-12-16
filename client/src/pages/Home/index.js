@@ -1,6 +1,14 @@
 import { useQuery } from '@apollo/client';
+
 import { GET_TODOS, QUERY_ME } from '../../utils/queries';
+
+import { GET_TODOS } from '../../utils/queries';
+
+import totoro from "./images/Totoro-Background.jpeg";
+
+
 import { TodoContext } from '../../TodoContext';
+
 
 import AddTodos from '../../components/Todo/AddTodos';
 import Todo from '../../components/Todo/Todo';
@@ -15,8 +23,23 @@ function Home() {
 	console.log(todos);
 	return (
 		<main>
+
 			{todos && (
 				<div className='container todobox'>
+
+			<TodoContext.Provider value={{selectedId,setSelectedId}}>
+
+			<div 
+			class="bg_image"
+			style={{
+			 backgroundImage: `url(${totoro})`,
+			 backgroundSize: "cover",
+			 height: "100vh",
+			 color: "#F5F5F5",
+			 flex: "center"
+			}}	
+			className='container todobox'>
+
 				<AddTodos />
 				<div className="list-group mt-4">
 					{todos.todos.map(todo => (
