@@ -1,4 +1,8 @@
-: :root
+
+.bg_image {
+    height: auto;
+
+
 
 
 
@@ -36,4 +40,5 @@ ul {
 ul li {
     display:flex;
     
+
 }
