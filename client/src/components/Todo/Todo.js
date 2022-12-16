@@ -25,7 +25,7 @@ const Todo = ({_id,title,date,detail}) => {
 						<small>{moment(date).format("MMMM DD YYYY")}</small>
 					</div>
 					<p className="mb-1">{detail}</p>
-					<small > {_id}
+					<small > 
                     <i onClick={() => removeTodo(_id)} className="fa-solid fa-trash-can"></i></small>
 				</a>
 
