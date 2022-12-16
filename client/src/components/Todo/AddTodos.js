@@ -50,7 +50,6 @@ const AddTodos = () => {
         <form onSubmit={onSubmit} ref={inputAreaRef}>
             <div className="mb-3 form-group">
                 {/* <label>Title {selectedID}</label> */}
-                {/* <pre>{JSON.stringify(todo,null,'\t')}</pre> */}
                 <input type="text" className="form-control" placeholder="Enter the Title" value={todo.title} onChange={e =>setTodo({...todo,title:e.target.value})}/>
 
             </div>
