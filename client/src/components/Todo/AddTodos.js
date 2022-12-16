@@ -2,6 +2,7 @@ import { useMutation } from "@apollo/client";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { ADD_TODO } from "../../utils/mutations";
 import { GET_TODOS } from "../../utils/queries";
+import './Todo.css';
 
 import moment from 'moment'
 import { TodoContext } from "../../TodoContext";
@@ -64,7 +65,7 @@ const AddTodos = () => {
                 <label>Date</label>
                 <input type="date" placeholder="mm/dd/yyyy" className="form-control" value={moment(todo.date).format("YYYY-MM-DD")} onChange={e =>setTodo({...todo,date:e.target.value})}/>
             </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-success">Submit</button>
         </form>
     )
 }

@@ -25,8 +25,9 @@ function Home() {
 			 backgroundImage: `url(${totoro})`,
 			 backgroundSize: "cover",
 			 height: "100vh",
-			 color: "#F5F5F5"
-			}}		
+			 color: "#F5F5F5",
+			 flex: "center"
+			}}	
 			className='container todobox'>
 				<AddTodos />
 				<div className="list-group mt-4">
