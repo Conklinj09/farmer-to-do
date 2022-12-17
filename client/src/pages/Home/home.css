@@ -1,21 +1,20 @@
 
-
+.bg_image {
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
 
 /* form css */
 form {
-    display: flex;
+    margin-top: 120px;
     align-items: center;
     margin-bottom: 20 px;
 }
 
 form input {
-    /* flex-grow: 1;
-    padding: 5px 10px;
-    font-size: 14px;
-    border: 1px solid #ddd; */
-    max-width: 350px;
-    min-height: 500px;
-    margin: 80px auto;
     padding: 40px 30px 30px 30px;
     background-color: #ecf0f3;
     border-radius: 15px;
@@ -26,8 +25,9 @@ form button {
     box-shadow: none;
     padding: 5px 10px;
     font-size: 14px;
-    width: 100%;
+    width: 35%;
     height: 40px;
+    align-items: center;
     background-color: #05e017;
     color: #fff;
     cursor: pointer;
@@ -35,13 +35,17 @@ form button {
     box-shadow: 3px 3px 3px #b1b1b1,
         -3px -3px 3px #fff;
     letter-spacing: 1.3px;
-    /* padding: 5px 10px;
+    padding: 5px 10px;
     font-size: 14px;
-    background-color: #2196f3;
     color:floralwhite;
     border: none;
-    cursor: pointer; */
+    cursor: pointer;
 }
+
+form btn:hover {
+    background-color: #03f417;
+}
+
 
 ul {
     list-style: none;
