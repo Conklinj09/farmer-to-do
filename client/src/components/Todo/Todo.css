@@ -1,6 +1,29 @@
 .mb-3 {
 opacity: .55;
+
 }
+
 .list-group-item {
     opacity: .55;
+    margin: 20px;
+    border-radius: 15px;
+    }
+
+.form {
+    margin: 20px;
+    margin-bottom: 20px;
+
+    }
+
+.list-group {
+    margin: 20px;
+    padding-bottom: 55px;
+    background-color: rgb(32, 139, 48);
+    opacity: .85;
+    border-radius: 25px;
+    }
+
+    .btn {
+        display: block;
+        margin: auto;
     }

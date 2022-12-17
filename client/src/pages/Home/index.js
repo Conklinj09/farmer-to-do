@@ -1,17 +1,13 @@
 import { useQuery } from '@apollo/client';
-
 import { QUERY_ME } from '../../utils/queries';
-
-
 import totoro from "./images/Totoro-Background.jpeg";
-
-
 import { TodoContext } from '../../TodoContext';
-
 
 import AddTodos from '../../components/Todo/AddTodos';
 import Todo from '../../components/Todo/Todo';
 import { useState } from 'react';
+import './home.css';
+
 function Home() {
 	// const [selectedId, setSelectedId] = useState(0);
 	const { loading, error, data } = useQuery(QUERY_ME);
@@ -21,24 +17,17 @@ function Home() {
 	const todos = data?.me || [];
 	console.log(todos);
 	return (
-		<main>
-
-			{todos && (
-				<div className='container todobox'>
-
-
-
-					<div
-						class="bg_image"
+		<main className="bg_image"
 						style={{
 							backgroundImage: `url(${totoro})`,
 							backgroundSize: "cover",
 							height: "100vh",
 							color: "#F5F5F5",
 							flex: "center"
-						}}
-						className='container todobox'>
-
+						}}>
+ 		<div style={{overflow: 'scroll', height: '100%'}}>
+			{todos && (
+				<div className='container todobox'>
 						<AddTodos />
 						<div className="list-group mt-4">
 							{todos.todos.map(todo => (
@@ -49,16 +38,12 @@ function Home() {
 									detail={todo.detail}
 									date={todo.date}
 								/>
-
 							))}
-
 						</div>
 					</div>
-				</div>
 			)}
-
+			</div>
 		</main>
-
 	);
 }
 

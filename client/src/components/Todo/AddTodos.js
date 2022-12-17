@@ -47,9 +47,9 @@ const AddTodos = () => {
     }
 
     return (
-        <form onSubmit={onSubmit} ref={inputAreaRef}>
+        <form className="form" onSubmit={onSubmit} ref={inputAreaRef}>
             <div className="mb-3 form-group">
-                {/* <label>Title {selectedID}</label> */}
+                <label>Title</label>
                 <input type="text" className="form-control" placeholder="Enter the Title" value={todo.title} onChange={e =>setTodo({...todo,title:e.target.value})}/>
 
             </div>
