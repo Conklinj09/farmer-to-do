@@ -5,6 +5,7 @@ import AddTodos from "../../components/Todo/AddTodos";
 import { useMutation } from "@apollo/client";
 import { DELETE_TODO } from "../../utils/mutations";
 import "./Todo.css";
+import { Link } from "react-router-dom";
 
 const Todo = ({ _id, title, date, detail }) => {
   const [deleteTodo] = useMutation(DELETE_TODO);
@@ -19,14 +20,15 @@ const Todo = ({ _id, title, date, detail }) => {
     window.location.reload();
   };
   return (
-         <a
-        href="#"
+         <div
+        
         className="list-group-item list-group-item-action"
         aria-current="true"
       >
         <div className="d-flex w-100 justify-content-between">
           <h5 className="mb-1">{title}</h5>
           <small>{moment(date).format("MMMM DD YYYY")}</small>
+          <Link to={`/edit/${_id}`} >Update</Link>
         </div>
         <p className="mb-1">{detail}</p>
         <small>
@@ -35,7 +37,7 @@ const Todo = ({ _id, title, date, detail }) => {
             className="fa-solid fa-trash-can"
           ></i>
         </small>
-      </a>
+      </div>
   );
 };
 
