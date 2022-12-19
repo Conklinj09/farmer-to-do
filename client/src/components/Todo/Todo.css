@@ -1,10 +1,30 @@
-.mb-3 {
-opacity: .55;
 
+.title {
+    color: rgb(19, 33, 44);
+    font-weight: bold;    
+    }
+    
+.list-group-item.list-group-item {
+    width: 95%;
+    display: block;
+    margin: auto;    
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    border-radius: 15px;
 }
 
+.mb-3 {
+    opacity: .75;
+    width: 100%;
+    display: block;
+    margin: auto;    
+    justify-content: center;
+    align-items: center;
+    }
+
 .list-group-item {
-    opacity: .55;
+    opacity: .75;
     margin: 20px;
     border-radius: 15px;
     }
@@ -23,7 +43,9 @@ opacity: .55;
     border-radius: 25px;
     }
 
-    .btn {
-        display: block;
-        margin: auto;
-    }
+.button {
+    display: block;
+    margin: auto;    
+    /* justify-content: center;
+    align-items: center; */
+}
