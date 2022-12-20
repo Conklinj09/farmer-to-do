@@ -20,6 +20,7 @@ const Todo = ({ _id, title, date, detail }) => {
     window.location.reload();
   };
   return (
+
          <div
         
         className="list-group-item list-group-item-action"
@@ -40,6 +41,25 @@ const Todo = ({ _id, title, date, detail }) => {
           <Link to={`/edit/${_id}`} state={{ _id, title, detail, date }} className="fa-solid fa-pencil"></Link>
         </small>
       </div>
+
+    <a
+      href="#"
+      className="list-group-item list-group-item-action"
+      aria-current="true"
+    >
+      <div className="d-flex w-100 justify-content-between">
+        <h5 className="mb-1">{title}</h5>
+        <small>{moment(date).format("MMMM DD YYYY")}</small>
+      </div>
+      <p className="mb-1">{detail}</p>
+      <small>
+        <i
+          onClick={() => removeTodo(_id)}
+          className="fa-solid fa-trash-can"
+        ></i>
+      </small>
+    </a>
+
   );
 };
 
