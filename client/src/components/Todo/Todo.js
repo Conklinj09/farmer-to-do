@@ -3,7 +3,7 @@ import moment from "moment";
 import { GET_TODOS, QUERY_ME } from "../../utils/queries";
 import AddTodos from "../../components/Todo/AddTodos";
 import { useMutation } from "@apollo/client";
-import { DELETE_TODO } from "../../utils/mutations";
+import { DELETE_TODO ,UPDATE_TODO } from "../../utils/mutations";
 import "./Todo.css";
 import { Link } from "react-router-dom";
 
@@ -28,14 +28,16 @@ const Todo = ({ _id, title, date, detail }) => {
         <div className="d-flex w-100 justify-content-between">
           <h5 className="mb-1">{title}</h5>
           <small>{moment(date).format("MMMM DD YYYY")}</small>
-          <Link to={`/edit/${_id}`} >Update</Link>
+         
+
         </div>
         <p className="mb-1">{detail}</p>
         <small>
           <i
             onClick={() => removeTodo(_id)}
             className="fa-solid fa-trash-can"
-          ></i>
+          ></i>{" "}
+          <Link to={`/edit/${_id}`} state={{ _id, title, detail, date }} className="fa-solid fa-pencil"></Link>
         </small>
       </div>
   );
